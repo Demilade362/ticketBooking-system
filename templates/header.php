@@ -21,7 +21,7 @@
         }
 
         .img-fluid {
-            height: 390px;
+            height: 400px;
         }
 
         @media screen and (max-width: 990px) {
