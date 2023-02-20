@@ -1,0 +1,14 @@
+.mt-6 {
+    margin-top: 15rem;
+}
+
+
+@media screen and (max-width: 990px) {
+    .mt-6 {
+        margin-top: 10rem;
+    }
+
+    #ms-6 {
+        margin-left: 0;
+    }
+}
