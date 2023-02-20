@@ -38,9 +38,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Train Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="#" class="btn btn-secondary col-12 btn-lg" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -72,9 +74,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Flight Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -108,9 +112,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Boat Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -142,9 +148,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Bus (BRT) Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -155,15 +163,31 @@ $name = $_SESSION['username'] ?? 'Guest';
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Book Train Tickets</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    Show a second modal and hide this one with the button below.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                </div>
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <div class="modal-body">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" class="form-control mb-3" disabled>
+
+                        <label for="username" class="form-label">Email</label>
+                        <input type="text" name="username" value="<?php echo $_SESSION['userEmail'] ?>" class="form-control mb-3">
+
+                        <label for="Location" class="form-label">Location</label>
+                        <select name="location" class="form-select mb-3">
+                            <option selected value="Location-Unset">Choose A Location</option>
+                            <option value="Ketu">Ketu</option>
+                            <option value="Lekki">Lekki</option>
+                            <option value="Apapa">Apapa</option>
+                            <option value="Ikorodu">Ikorodu</option>
+                            <option value="Victoria-Island">Victoria Island</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success col-12" type="submit" name="submit" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Purchase Ticket</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

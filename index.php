@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
 
                     $_SESSION['username'] = $row['usersName'];
                     $_SESSION['userId'] = $row['usersId'];
+                    $_SESSION['userEmail'] = $row['usersEmail'];
                     return true;
                 }
 
