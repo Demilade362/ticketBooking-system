@@ -15,7 +15,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="home.php" class="nav-link active">
-                        ABOUT
+                        VIEW TICKETS
                     </a>
                 </li>
                 <li class="nav-item">

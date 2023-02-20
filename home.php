@@ -39,7 +39,7 @@ $name = $_SESSION['username'] ?? 'Guest';
                         </p>
                     </div>
                     <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg" c data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Book Now</a>
+                        <a href="#" class="btn btn-secondary col-12 btn-lg" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Book Now</a>
                     </div>
                 </div>
             </div>
