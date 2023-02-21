@@ -38,9 +38,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Train Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="add.inc.php?mode=Train" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -72,9 +74,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Flight Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="add.inc.php?mode=Aeroplane" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -108,9 +112,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Boat Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="add.inc.php?mode=Boat" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -142,9 +148,11 @@ $name = $_SESSION['username'] ?? 'Guest';
                         <p class="lead"> Book Bus (BRT) Tickets to Anywhere in lagos
                         </p>
                     </div>
-                    <div>
-                        <a href="#" class="btn btn-secondary col-12 btn-lg">Book Now</a>
-                    </div>
+                    <?php if ($_SESSION['username']) :  ?>
+                        <div>
+                            <a href="add.inc.php?mode=Bus" class="btn btn-secondary col-12 btn-lg">Book Now</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
