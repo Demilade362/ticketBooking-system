@@ -27,6 +27,11 @@
             height: 410px;
         }
 
+        .container-extra {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
         @media screen and (max-width: 990px) {
             .mt-6 {
                 margin-top: 10rem;
