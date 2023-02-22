@@ -1,5 +1,4 @@
 <?php
-include_once 'config/db_connect.php';
 session_start();
 if (!$_SESSION['username']) {
     header('Location: index.php');
@@ -13,7 +12,7 @@ if (isset($_GET["mode"])) {
 <?php include 'includes/validation.php' ?>
 <?php include 'templates/header.php'; ?>
 <?php include 'templates/nav.php'; ?>
-<div class="container-extra mt-5 ">
+<div class="container-extra bg-white shadow-sm mt-5 p-3">
     <?php if ($error['email']) : ?>
         <div class="alert alert-danger">
             <?php echo $error['email'] ?>
@@ -41,21 +40,18 @@ if (isset($_GET["mode"])) {
         <input type="number" name="accountNo" value="<?php echo "$accountNo" ?>" class="form-control mb-3">
 
         <label for="Location" class="form-label">Location</label>
-        <select name="location" class="form-select mb-3" id='Locale' value="<?php echo $location ?>">
+        <select name="location" class="form-select mb-3" id='Location' value="<?php echo $location ?>">
             <option selected value="Location-Unset">Choose A Location</option>
-            <option value="Ketu">Ketu</option>
-            <option value="Lekki">Lekki</option>
-            <option value="Apapa">Apapa</option>
-            <option value="Ikorodu">Ikorodu</option>
-            <option value="Victoria-Island">Victoria Island</option>
+            <option value="Ketu - N700">Ketu - N700</option>
+            <option value="Lekki - N2000">Lekki - N2000</option>
+            <option value="Apapa - N4000">Apapa - N4000</option>
+            <option value="Ikorodu - N500">Ikorodu - N500</option>
+            <option value="Victoria-Island - N2000">Victoria Island - N2000</option>
         </select>
-
-        <label for="price" class="form-label">Price</label>
-        <input type="text" name="price" class="form-control mb-3" disabled id="price">
 
         <label for="mode" class="form-label">Mode Of Transport</label>
         <input type="text" name="mode" class="form-control mb-3" disabled value="<?php echo htmlspecialchars($_SESSION['mode']) ?>">
-        <button class="btn btn-success col-12" type="submit" name="submit">Purchase Ticket</button>
+        <button class="btn btn-success col-12" name="submit" type="submit">Purchase Ticket</button>
     </form>
 </div>
 </div>

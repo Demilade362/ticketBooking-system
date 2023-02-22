@@ -1,15 +1,11 @@
 <?php
-$username = $email = $location = $price = $accountNo =  '';
-$error = ['username' => '', 'email' => '', 'location' => '', 'accountNo' => '', 'price' => ''];
+include("config/db_connect.php");
+$email = $location = $price = $accountNo = '';
 
+$error = ['email' => '', 'location' => '', 'accountNo' => ''];
+
+$userId = $_SESSION['userId'];
 if (isset($_POST['submit'])) {
-
-    if (empty($_POST['username'])) {
-        $error['username'] = 'Provide Your Username';
-    } else {
-        $username = $_POST['username'];
-    }
-
     if (empty($_POST['email'])) {
         $error['email'] = 'Provide Your Email';
     } else {
@@ -28,15 +24,6 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    if (empty($_POST['price'])) {
-        $error['price'] = 'Price is Empty select or reselect your location';
-    } else {
-        $price = $_POST['price'];
-        if ($price === '0') {
-            $error['price'] = 'Choose A locale';
-        }
-    }
-
     if (empty($_POST['accountNo'])) {
         $error['accountNo'] = 'Add your Account Number for Payment';
     } else {
@@ -46,7 +33,22 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    if (array_filter($error)) {
-    } else {
+    if (!($error['email'] || $error['location'] || $error['accountNo'])) {
+        $ticketId = rand() * 9;
+        $username = mysqli_real_escape_string($conn, $_SESSION['username']);
+        $userId = mysqli_real_escape_string($conn, $_SESSION['userId']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $location = mysqli_real_escape_string($conn, $_POST['location']);
+        $accountNo = mysqli_real_escape_string($conn, $_POST['accountNo']);
+        $mode = mysqli_real_escape_string($conn, $_SESSION['mode']);
+
+
+        $sql = "INSERT INTO tickets(usersname, usersId, usersemail, localePlace, accountNo, ticketID, mode) VAlUES('$username', '$userId', '$email', '$location', '$accountNo', '$ticketId', '$mode')";
+        if (mysqli_query($conn, $sql)) {
+            header('Location: add_success.php?type=success');
+        } else {
+            header('Location: add_success.php?type=error');
+            echo 'Connection Error: ' . mysqli_error($conn);
+        }
     }
 }
