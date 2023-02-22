@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="home.php" class="nav-link active">
+                    <a href="tickets.php" class="nav-link active">
                         VIEW TICKETS
                     </a>
                 </li>
