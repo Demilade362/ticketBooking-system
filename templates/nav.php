@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./Report.php" class="nav-link active">
+                    <a href="Report.php" class="nav-link active">
                         REPORT A PROBLEM
                     </a>
                 </li>

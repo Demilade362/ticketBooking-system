@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <?php include 'templates/header.php' ?>
 <?php include 'templates/nav.php' ?>
 <section class="container-extra shadow-sm bg-white mt-5 p-3 shadow-sm">
@@ -8,7 +12,7 @@
         <label for="msg" class="form-label">Your Message</label>
         <textarea name="msg" class="form-control mb-3" cols="30" rows="10"></textarea>
 
-        <button class="btn btn-primary col-12" type="submit" name="submit">Report a Problem</button>
+        <button class="btn btn-success col-12" type="submit" name="submit">Report a Problem</button>
     </form>
 </section>
 <?php include 'templates/navfooter.php' ?>
