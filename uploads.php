@@ -5,6 +5,7 @@ $username = $email = $profilePic = '';
 $errors = array('username' => '', 'email' => '', 'profilePic' => '', 'usualError' => '');
 
 if (isset($_POST['update'])) {
+
     if (empty($_SESSION['username'])) {
         $errors['username'] = 'Username is Empty';
     } else {
@@ -34,7 +35,7 @@ if (isset($_POST['update'])) {
             if ($error === 0) {
                 $img_ex = pathinfo($file_name, PATHINFO_EXTENSION);
                 $img_ex_to_lc = strtolower($img_ex);
-                $allowed_exist = array('jpg', 'jpeg', 'png');
+                $allowed_exist = array('jpg', 'jpeg', 'png', 'svg');
                 if (in_array($img_ex_to_lc, $allowed_exist)) {
                     $new_image_name = uniqid($username, true) . '.' . $img_ex_to_lc;
                     $img_upload_path = 'image/' . $new_image_name;
@@ -43,6 +44,7 @@ if (isset($_POST['update'])) {
 
                     $usersname = mysqli_real_escape_string($conn, $_SESSION['username']);
                     $email = mysqli_real_escape_string($conn, $_SESSION['userEmail']);
+
                     //moving to database
                     $ID =  $_SESSION['userId'];
                     $sql = "UPDATE loginsystem  SET usersName = '$username', usersEmail = '$email',  picture = '$new_image_name' WHERE usersId = $ID";

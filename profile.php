@@ -11,8 +11,9 @@ if (!$_SESSION['username']) {
     $sql = "SELECT usersId, usersName, picture, usersEmail, createdAt FROM loginsystem WHERE usersId = $id";
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_assoc($query);
+    $_SESSION['pp'] = $result['picture'];
 }
-$_SESSION['pp'] = $result['picture'];
+
 if (isset($_POST['submit'])) {
     $id_to_delete = $_POST['id_to_delete'];
     $sql = "DELETE FROM loginsystem WHERE usersId = ?";
@@ -34,10 +35,12 @@ mysqli_close($conn);
 <section class="container-extra bg-white p-5 shadow-sm my-5">
     <div class="d-lg-flex justify-content-between mb-4">
         <?php if ($result) : ?>
-            <?php if ($result['picture']) : ?>
-                <img class="rounded-circle" src="image/<?php echo $_SESSION['pp']; ?>" height="200" width="200" alt="">
+            <?php if ($_SESSION['pp']) : ?>
+                <img class="rounded-circle" src="image/<?php echo $_SESSION['pp']; ?>" height="250" width="250" alt="Profile Picture">
+            <?php elseif (!$_SESSION['pp']) : ?>
+                <img src="templates/user-solid.svg" height="200" width="200" alt="Profile Picture">
             <?php else : ?>
-                <img src="templates/user-solid.svg" height="200" width="200" alt="">
+                <img src="templates/user-solid.svg" height="200" width="200" alt="Profile Picture">
             <?php endif; ?>
             <h4 class="h4">
                 @<?php echo $result['usersName'] ?>

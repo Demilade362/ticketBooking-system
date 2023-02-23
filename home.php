@@ -1,9 +1,17 @@
 <?php
+include("config/db_connect.php");
 session_start();
 if (!$_SESSION['username']) {
     header('Location: index.php');
 }
+
 $name = $_SESSION['username'] ?? 'Guest';
+$id = $_SESSION['userId'];
+$sql = "SELECT picture FROM loginsystem WHERE usersId = $id";
+$query = mysqli_query($conn, $sql);
+$result = mysqli_fetch_assoc($query);
+$_SESSION['pp'] = $result['picture'];
+
 ?>
 <?php include 'templates/header.php'; ?>
 <?php include 'templates/nav.php'; ?>
