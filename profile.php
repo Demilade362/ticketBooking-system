@@ -36,7 +36,7 @@ mysqli_close($conn);
         <img src="templates/user-solid.svg" height="200" width="200" alt="">
         <?php if ($result) : ?>
             <h4 class="h4">
-                <?php echo $result['usersName'] ?>
+                @<?php echo $result['usersName'] ?>
             </h4>
         <?php endif; ?>
     </div>
@@ -67,7 +67,7 @@ mysqli_close($conn);
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Your Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="profile.php">
+                <form action="profile.php" method="POST">
                     <div class="modal-body">
                         <?php if ($result) : ?>
                             <label for="username" class="form-label">Username: </label>
