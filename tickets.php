@@ -49,6 +49,7 @@ mysqli_close($conn)
                     </td>
                 </tr>
             <?php endforeach; ?>
+            
         </tbody>
     </table>
 </div>
