@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (!($error['email'] || $error['location'] || $error['accountNo'])) {
-        $ticketId = rand() * 9;
+        $ticketId = uniqid('', true);
         $username = mysqli_real_escape_string($conn, $_SESSION['username']);
         $userId = mysqli_real_escape_string($conn, $_SESSION['userId']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);

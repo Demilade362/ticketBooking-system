@@ -1,16 +1,18 @@
 <?php
 include_once 'config/db_connect.php';
+
+
 session_start();
 if (!$_SESSION['username']) {
     header('Location: index.php');
 } else {
     $name = $_SESSION['username'] ?? 'Guest';
     $id = $_SESSION['userId'];
-    $sql = "SELECT usersId, usersName, usersEmail, createdAt FROM loginsystem WHERE usersId = $id";
+    $sql = "SELECT usersId, usersName, picture, usersEmail, createdAt FROM loginsystem WHERE usersId = $id";
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_assoc($query);
 }
-
+$_SESSION['pp'] = $result['picture'];
 if (isset($_POST['submit'])) {
     $id_to_delete = $_POST['id_to_delete'];
     $sql = "DELETE FROM loginsystem WHERE usersId = ?";
@@ -25,16 +27,18 @@ if (isset($_POST['submit'])) {
     header('Location: success.php?success=AccountDeleted');
 }
 mysqli_close($conn);
-
-
 ?>
 <?php include 'templates/header.php'; ?>
 <?php include 'templates/nav.php'; ?>
 
 <section class="container-extra bg-white p-5 shadow-sm my-5">
     <div class="d-lg-flex justify-content-between mb-4">
-        <img src="templates/user-solid.svg" height="200" width="200" alt="">
         <?php if ($result) : ?>
+            <?php if ($result['picture']) : ?>
+                <img class="rounded-circle" src="image/<?php echo $_SESSION['pp']; ?>" height="200" width="200" alt="">
+            <?php else : ?>
+                <img src="templates/user-solid.svg" height="200" width="200" alt="">
+            <?php endif; ?>
             <h4 class="h4">
                 @<?php echo $result['usersName'] ?>
             </h4>
@@ -67,15 +71,15 @@ mysqli_close($conn);
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Your Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="profile.php" method="POST">
+                <form action="uploads.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <?php if ($result) : ?>
                             <label for="username" class="form-label">Username: </label>
-                            <input type="text" name="username" class="form-control mb-3" value="<?php echo $result['usersName'] ?>">
+                            <input type="text" name="username" class="form-control mb-3" value="<?php echo $_SESSION['username'] ?>">
 
 
                             <label for="email" class="form-label">Email: </label>
-                            <input type="text" name="useremail" value="<?php echo $result['usersEmail'] ?>" class="form-control mb-3">
+                            <input type="text" name="useremail" value="<?php echo $_SESSION['userEmail'] ?>" class="form-control mb-3">
 
                             <label for="profilePic" class="form-label">Choose a Photo: </label>
                             <input type="file" name="profilePic" class="form-control mb-3">
