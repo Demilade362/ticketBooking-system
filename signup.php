@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
         $error['username'] = 'Provide Username';
     } else {
         $username = $_POST['username'];
-        if (!preg_match('/^[a-zA-Z0-9]*$/', $username)) {
+        if (!preg_match('/^[a-zA-Z0-9\s]*$/', $username)) {
             $error['username'] = 'Username Must Only Contain Letters And Numbers No Special Chars';
         }
     }
