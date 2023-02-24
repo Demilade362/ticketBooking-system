@@ -11,22 +11,34 @@ if (isset($_GET['del'])) {
 <div class="container mt-6 text-center">
     <?php if ($type === 'success') : ?>
         <h1 class="h1 text-success">
-            Booking Successful
+            Successful
             <span class="spinner-border ms-2"></span>
         </h1>
         <p>Check Your Tickets: <a href="tickets.php">View Tickets</a></p>
     <?php elseif ($type === 'error') : ?>
         <h1 class="h1 text-success">
-            Booking Unsuccessful
+            Unsuccessful
             <span class="spinner-border ms-2"></span>
         </h1>
         <p>Go Back to <a href="home.php">Home</a></p>
     <?php elseif ($del === 'del') : ?>
         <h1 class="h1 text-success">
-            Deleting Ticket Unsuccessful
+            Deleting Unsuccessful
             <span class="spinner-border ms-2"></span>
         </h1>
         <p>Go Back to Check Your <a href="tickets.php">Tickets</a></p>
+    <?php elseif ($del === 'AdminDelete') : ?>
+        <h1 class="h1 text-success">
+            Deleting Unsuccessful
+            <span class="spinner-border ms-2"></span>
+        </h1>
+        <p>Go Back to Check Your <a href="AdminHome.php">Tickets</a></p>
+    <?php elseif ($del === 'AdminDelete') : ?>
+        <h1 class="h1 text-success">
+            Deleting User Account Unsuccessful
+            <span class="spinner-border ms-2"></span>
+        </h1>
+        <p>Go Back to Check Your <a href="AdminHome.php">Tickets</a></p>
     <?php endif; ?>
 </div>
 <?php include 'templates/footer.php' ?>

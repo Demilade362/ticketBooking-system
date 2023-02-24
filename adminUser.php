@@ -2,17 +2,17 @@
 include('config/db_connect.php');
 session_start();
 $name = $_SESSION['adminName'] ?? 'Guest';
-$sql = "SELECT * FROM tickets";
+$sql = "SELECT * FROM loginsystem";
 $query = mysqli_query($conn, $sql);
 $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 if (isset($_POST['submit'])) {
     $Id = $_POST['myId'];
-    $mysql = "DELETE FROM tickets WHERE id = $Id";
+    $mysql = "DELETE FROM loginsystem WHERE id = $Id";
     if (mysqli_query($conn, $mysql)) {
         header('Location: adminHome.php.php');
     } else {
-        header('Location: add_success.php?del=AdminDelete');
+        header('Location: add_success.php?del=UserDelete');
     }
 }
 ?>
@@ -48,10 +48,10 @@ if (isset($_POST['submit'])) {
             <div class="col-1 bg-primary shadow-sm" id="side">
                 <ul class="nav flex-column" style="margin-top: 7rem;">
                     <li class="nav-item">
-                        <a href="#" class="nav-link btn btn-light mb-5 mx-auto">Tickets</a>
+                        <a href="adminHome.php" class="nav-link text-light  mb-5 mx-auto">Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a href="adminUser.php" class="nav-link mb-5 mx-auto text-light">Users</a>
+                        <a href="#" class="nav-link mb-5 mx-auto btn btn-light">Users</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link mx-auto text-light">Used Ticket</a>
@@ -70,9 +70,9 @@ if (isset($_POST['submit'])) {
                         <div class="navbar-brand"><span class="text-primary">We</span>Tic Admin</div>
                         <div class="collapse navbar-collapse">
                             <div class="mx-auto search-form" style="width: 50%;">
-                                <form action="search.php" method="get" class="d-lg-flex">
-                                    <input type="search" class="form-control rounded-pill" placeholder="Search Username" id="search" name="searchTicket">
-                                    <button type="submit" class="btn btn-outline-success ms-2" name="search">Search</button>
+                                <form action="search.php" method="get" class="d-lg-flex ">
+                                    <input type="search" class="form-control rounded-pill" placeholder="Search Username" id="search" name="user">
+                                    <button type="submit" class="btn btn-outline-success ms-2" name="searchUser">Search</button>
                                 </form>
                             </div>
                             <ul class="navbar-nav">
@@ -90,41 +90,35 @@ if (isset($_POST['submit'])) {
                     <table class="table bg-white">
                         <thead>
                             <tr>
-                                <th scope="col">Tickets Id</th>
+                                <th scope="col">User Id</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Mode of Transport</th>
-                                <th scope="col">Location</th>
+                                <th scope="col">Created At</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($results as $result) : ?>
                                 <tr>
-                                    <th scope="row"><?php echo $result['ticketID'] ?></th>
-                                    <td id="username"><?php echo $result['usersname'] ?></td>
-                                    <td><?php echo $result['usersemail'] ?></td>
-                                    <td><?php echo $result['mode'] ?></td>
-                                    <td><?php echo $result['localePlace'] ?></td>
+                                    <th scope="row"><?php echo $result['usersId'] ?></th>
+                                    <td><?php echo $result['usersName'] ?></td>
+                                    <td><?php echo $result['usersEmail'] ?></td>
+                                    <td><?php echo $result['createdAt'] ?></td>
                                     <td>
                                         <form action="adminHome.php" method="POST">
-                                            <input type="hidden" name="myId" value="<?php echo $result['id'] ?>">
-                                            <button class="btn btn-success" name="submit" type="submit">Use</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="adminHome.php" method="POST">
-                                            <input type="hidden" name="myId" value="<?php echo $result['id'] ?>">
-                                            <button class="btn btn-danger" name="submit" type="submit">Delete </button>
+                                            <input type="hidden" name="myId" value="<?php echo $result['usersId'] ?>">
+                                            <button class="btn btn-danger" name="submit" type="submit">Delete User Account </button>
                                         </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
