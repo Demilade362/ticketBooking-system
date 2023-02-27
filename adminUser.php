@@ -77,7 +77,12 @@ if (isset($_POST['submit'])) {
             <div class="col-10" id="second">
                 <nav class="navbar navbar-expand-lg bg-white auto-hiding-navbar">
                     <div class="container">
-                        <div class="navbar-brand"><span class="text-primary">We</span>Tic Admin</div>
+                        <div class="navbar-brand">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-ticket-fill mb-1 text-primary" viewBox="0 0 16 16">
+                <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13Z" />
+            </svg>
+
+                            <span class="text-primary">We</span>Tic Admin</div>
                         <div class="collapse navbar-collapse">
                             <div class="mx-auto search-form" style="width: 50%;">
                                 <form action="search.php" method="get" class="d-lg-flex ">

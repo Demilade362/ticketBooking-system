@@ -97,7 +97,7 @@ if (isset($_GET['searchUsedTicket']) && isset($_GET['searchUsedTicket'])) {
                     <div class="text-center">
                         <div>
                             <p class="lead">Record Not Found
-                                <span class="spinner-border"></span>
+                                <span class="spinner-border spinner-border-sm"></span>
                             </p>
                         </div>
                         <a href="adminHome.php" class="btn btn-primary">Back to Homepage</a>
@@ -139,7 +139,7 @@ if (isset($_GET['searchUsedTicket']) && isset($_GET['searchUsedTicket'])) {
                     <div class="text-center">
                         <div>
                             <p class="lead">Record Not Found
-                                <span class="spinner-border"></span>
+                                <span class="spinner-border spinner-border-sm"></span>
                             </p>
                         </div>
                         <a href="adminUser.php" class="btn btn-primary">Back to Homepage</a>
@@ -183,7 +183,7 @@ if (isset($_GET['searchUsedTicket']) && isset($_GET['searchUsedTicket'])) {
                     <div class="text-center">
                         <div>
                             <p class="lead">Record Not Found
-                                <span class="spinner-border spainner-border-sm"></span>
+                                <span class="spinner-border spinner-border-sm"></span>
                             </p>
                         </div>
                         <a href="usedTickets.php" class="btn btn-primary">Back to Homepage</a>
