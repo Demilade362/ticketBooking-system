@@ -2,19 +2,11 @@
 include('config/db_connect.php');
 session_start();
 $name = $_SESSION['adminName'] ?? 'Guest';
+
 $sql = "SELECT * FROM tickets";
 $query = mysqli_query($conn, $sql);
 $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-if (isset($_POST['submit'])) {
-    $Id = $_POST['myId'];
-    $mysql = "DELETE FROM tickets WHERE id = $Id";
-    if (mysqli_query($conn, $mysql)) {
-        header('Location: adminHome.php.php');
-    } else {
-        header('Location: add_success.php?del=AdminDelete');
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,13 +40,21 @@ if (isset($_POST['submit'])) {
             <div class="col-1 bg-primary shadow-sm" id="side">
                 <ul class="nav flex-column" style="margin-top: 7rem;">
                     <li class="nav-item">
-                        <a href="#" class="nav-link btn btn-light mb-5 mx-auto">Tickets</a>
+                        <a href="#" class="nav-link btn btn-light mb-5 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                            </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a href="adminUser.php" class="nav-link mb-5 mx-auto text-light">Users</a>
+                        <a href="adminUser.php" class="nav-link mb-5 mx-auto text-light"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link mx-auto text-light">Used Ticket</a>
+                        <a href="usedTickets.php" class="nav-link mx-auto text-light"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z" />
+                            </svg></a>
                     </li>
 
                     <li class="nav-item mx-auto" style="margin-top: 20rem;">
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
                             <ul class="navbar-nav">
 
                                 <li class="nav-item">
-                                    <a href="#" class="btn btn-secondary">Logout <?php echo $_SESSION['adminName'] ?></a>
+                                    <a href="includes/LogoutAdmin.inc.php" class="btn btn-secondary">Logout <?php echo $_SESSION['adminName'] ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -106,15 +106,18 @@ if (isset($_POST['submit'])) {
                                     <td><?php echo $result['mode'] ?></td>
                                     <td><?php echo $result['localePlace'] ?></td>
                                     <td>
-                                        <form action="adminHome.php" method="POST">
+                                        <form action="usedTickets.php" method="POST">
                                             <input type="hidden" name="myId" value="<?php echo $result['id'] ?>">
-                                            <button class="btn btn-success" name="submit" type="submit">Use</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="adminHome.php" method="POST">
-                                            <input type="hidden" name="myId" value="<?php echo $result['id'] ?>">
-                                            <button class="btn btn-danger" name="submit" type="submit">Delete </button>
+                                            <input type="hidden" name="ticketId" value="<?php echo $result['ticketID'] ?>">
+                                            <input type="hidden" name="usersname" value="<?php echo $result['usersname'] ?>">
+                                            <input type="hidden" name="usersemail" value="<?php echo $result['usersemail'] ?>">
+                                            <input type="hidden" name="mode" value="<?php echo $result['mode'] ?>">
+                                            <input type="hidden" name="location" value="<?php echo $result['localePlace'] ?>">
+                                            <button class="btn btn-success" name="useTic" type="submit">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                                                    <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z" />
+                                                </svg>
+                                                Use</button>
                                         </form>
                                     </td>
                                 </tr>

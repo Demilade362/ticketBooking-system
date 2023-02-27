@@ -109,8 +109,7 @@ if (isset($_POST['submit'])) {
                 <form action="admin.php" method="POST">
                     <input type="text" name="username" class="form-control mb-3 form-control-lg" placeholder="Your Username" value='<?php echo $username; ?>'>
                     <input type="password" name="password" class="form-control mb-3 form-control-lg" placeholder="Your Password" value="<?php echo $password; ?>">
-                    <input type="submit" name="submit" value="Login To Account" class="btn btn-secondary btn-lg col-12">
-                    <p class="mt-3 lead">if you don't have an Account? <a href="signup.php" class="text-decoration-none">Create an Account.</a></p>
+                    <input type="submit" name="submit" value="Login Admin" class="btn btn-secondary btn-lg col-12">
                 </form>
             </div>
         </div>

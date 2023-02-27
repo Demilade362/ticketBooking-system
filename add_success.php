@@ -13,6 +13,8 @@ if (isset($_GET['del'])) {
         <h1 class="h1 text-success">
             Successful
             <span class="spinner-border ms-2"></span>
+
+            <p>We have sent you a Confirmation Email</p>
         </h1>
         <p>Check Your Tickets: <a href="tickets.php">View Tickets</a></p>
     <?php elseif ($type === 'error') : ?>
@@ -32,13 +34,13 @@ if (isset($_GET['del'])) {
             Deleting Unsuccessful
             <span class="spinner-border ms-2"></span>
         </h1>
-        <p>Go Back to Check Your <a href="AdminHome.php">Tickets</a></p>
-    <?php elseif ($del === 'AdminDelete') : ?>
+        <p>Go Back to Check Your <a href="adminHome.php">Users Tickets</a></p>
+    <?php elseif ($del === 'UserDelete') : ?>
         <h1 class="h1 text-success">
-            Deleting User Account Unsuccessful
+            Deleting User Account unsuccessful
             <span class="spinner-border ms-2"></span>
         </h1>
-        <p>Go Back to Check Your <a href="AdminHome.php">Tickets</a></p>
+        <p>Go Back to Check Your <a href="adminUser.php">Your Users</a></p>
     <?php endif; ?>
 </div>
 <?php include 'templates/footer.php' ?>

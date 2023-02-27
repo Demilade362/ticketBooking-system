@@ -46,6 +46,30 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO tickets(usersname, usersId, usersemail, localePlace, accountNo, ticketID, mode) VAlUES('$username', '$userId', '$email', '$location', '$accountNo', '$ticketId', '$mode')";
         if (mysqli_query($conn, $sql)) {
             header('Location: add_success.php?type=success');
+
+            $to = $email;
+            $subject = "Booking Tickets Completed";
+
+
+            $header = array(
+                "MIME-version" => '1.0',
+                'Content-Type' => 'text/html;charset=UTF-8',
+                "From" => 'ademolademilade362@gmail.com',
+                'Reply-to' => "ademolademilade362@gmail.com"
+            );
+
+            $user = $_SESSION['username'];
+            ob_start();
+
+            include('message_one.php');
+            $message = ob_get_contents();
+            ob_get_clean();
+
+            exit();
+
+            $send = mail($to, $subject, $message, $headers);
+
+            echo $send ? 'Mail is Sent' : 'We have A problem';
         } else {
             header('Location: add_success.php?type=error');
             echo 'Connection Error: ' . mysqli_error($conn);
