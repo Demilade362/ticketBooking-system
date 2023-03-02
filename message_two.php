@@ -29,7 +29,7 @@
         <p class="mb-3 lead">Your Ticket to <?php echo $locale ?> has been used. </p>
         <p class="mb-3 lead">If Not By You, Reply Us we are here to serve you well</p>
         <p class="lead mb-3"> Thank you for Your Patronage.</p>
-        <a href="#" class="btn btn-primary">View Remaining Tickets</a>
+        <a href="https://wytemecury.com.ng/" class="btn btn-primary">View Remaining Tickets</a>
     </div>
 </body>
 

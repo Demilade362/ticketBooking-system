@@ -27,7 +27,7 @@
         <h4 class="h4 mb-3">Hello <?php echo $user; ?></h4>
         <p class="mb-3 lead">Your Ticket Has Been Booked. </p>
         <p class="lead mb-3"> Thank you for Your Patronage.</p>
-        <a href="#" class="btn btn-primary">Login To View Tickets</a>
+        <a href="https://wytemecury.com.ng/" class="btn btn-primary">Login To View Tickets</a>
     </div>
 </body>
 
