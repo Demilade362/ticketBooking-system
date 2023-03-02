@@ -10,7 +10,7 @@
     <script defer src="./dist/popper.min.js"></script>
     <script defer src="./dist/js/bootstrap.bundle.js"></script>
     <script defer src="./dist/js/bootstrap.js"></script>
-    <title>WeTic</title>
+    <title>WyteMecury</title>
     <style>
         .mt-6 {
             margin-top: 15rem;

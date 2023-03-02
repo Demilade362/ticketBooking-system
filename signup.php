@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="col-lg-5 col-md-12 col-sm-12">
             <div class="display-1 d-lg-none mb-2 text-center">
-                <span class="text-primary">We</span>Tic
+                <span class="text-primary">Wyte</span>Mecury
             </div>
             <div <?php if ($error['username'] && $error['email'] && $error['password'] && $error['confirmPassword']) : ?>>
                 <div class="alert alert-danger">

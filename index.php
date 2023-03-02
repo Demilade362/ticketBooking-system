@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     <div class="row align-items-center justify-content-around">
         <div class="col-lg-3 text-center d-none d-lg-block">
             <div class="display-1">
-                <span class="text-primary">We</span>Tic
+                <span class="text-primary">Wyte</span>Mecury
             </div>
             <p class="lead">Booking AnyMinutes, Time and Place</p>
         </div>
