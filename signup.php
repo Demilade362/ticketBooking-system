@@ -44,19 +44,45 @@ if (isset($_POST['submit'])) {
 
     if (array_filter($error)) {
     } else {
-        $sql = 'INSERT INTO loginsystem(usersName, usersEmail, usersPwd) VALUES(?, ?, ?);';
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            $error['Equal'] = 'Something Went Wrong';
+        setcookie('code', mt_rand(10000, 99999), time() + 20);
+        $to = $email;
+        $subject = "One Time Verification Code";
+
+
+        $headers = array(
+            "MIME-version" => '1.0',
+            'Content-Type' => 'text/html; charset=UTF-8',
+            "From" => ' admin@wytemecury.com.ng',
+            'Reply-to' => "admin@wytemecury.com.ng"
+        );
+
+        $user = $username;
+
+        ob_start();
+        include('otp_message.php');
+        $message = ob_get_contents();
+        ob_get_clean();
+
+
+        $send = mail($to, $subject, $message, $headers);
+
+        if ($send) {
+            $sql = 'INSERT INTO loginsystem(usersName, usersEmail, usersPwd) VALUES(?, ?, ?);';
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                $error['Equal'] = 'Something Went Wrong';
+            }
+
+            $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
+
+            mysqli_stmt_bind_param($stmt, 'sss', $username, $email, $passwordHashed);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            mysqli_stmt_close($stmt);
+            header('Location: otp.php');
+        } else {
+            $error['Equal'] = "Error Unable to send confirmation Email";
         }
-
-        $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-
-        mysqli_stmt_bind_param($stmt, 'sss', $username, $email, $passwordHashed);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        mysqli_stmt_close($stmt);
-        header('Location: index.php');
     }
 }
 ?>

@@ -36,17 +36,20 @@ if (isset($_GET["mode"])) {
         <label for="email" class="form-label">Email</label>
         <input type="text" name="email" value="<?php echo  htmlspecialchars($_SESSION['userEmail']) ?>" class="form-control mb-3">
 
-        <label for="account" class="form-label">Account Number</label>
+        <label for="account" class="form-label">Credit Card Number</label>
         <input type="number" name="accountNo" value="<?php echo "$accountNo" ?>" class="form-control mb-3">
 
         <label for="Location" class="form-label">Location</label>
         <select name="location" class="form-select mb-3" id='Location' value="<?php echo $location ?>">
             <option selected value="Location-Unset">Choose A Location</option>
-            <option value="Ketu - N700">Ketu - N700</option>
-            <option value="Lekki - N2000">Lekki - N2000</option>
-            <option value="Apapa - N4000">Apapa - N4000</option>
-            <option value="Ikorodu - N500">Ikorodu - N500</option>
-            <option value="Victoria-Island - N2000">Victoria Island - N2000</option>
+            <option value="Ketu - &#8358;700">Ketu - &#8358;700</option>
+            <option value="Lekki - &#8358;2000">Lekki - &#8358;2000</option>
+            <option value="Apapa - &#8358;4000">Apapa - &#8358;4000</option>
+            <option value="Ikorodu - &#8358;500">Ikorodu - &#8358;500</option>
+            <option value="Victoria-Island - &#8358;2000">Victoria Island - &#8358;2000</option>
+            <option value="Kano - &#8358;150000">Kano - &#8358;150000</option>
+            <option value="Abuja - &#8358;120000">Abuja - &#8358;120000</option>
+            <option value="Bornu - &#8358;124000">Bornu - &#8358;124000</option>
         </select>
 
         <label for="mode" class="form-label">Mode Of Transport</label>

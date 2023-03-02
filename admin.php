@@ -8,13 +8,13 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['username'])) {
         $error['username'] = 'Provide Username';
     } else {
-        $username = $_POST['username'];
+        $username = trim($_POST['username']);
     }
 
     if (empty($_POST['password'])) {
         $error['password'] = 'Provide your Password';
     } else {
-        $password = $_POST['password'];
+        $password = trim($_POST['password']);
     }
 
 

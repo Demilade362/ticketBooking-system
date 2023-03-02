@@ -67,7 +67,7 @@ if (isset($_POST['delete'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wetic Used Tickets</title>
-    <link rel="shortcut icon" href="Custom-Icon-Design-Pretty-Office-2-Create-ticket.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="templates/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
     <script defer src="dist/popper.min.js"></script>
     <script defer src="dist/js/bootstrap.min.js"></script>
