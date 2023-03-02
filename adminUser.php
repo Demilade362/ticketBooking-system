@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel Wetic</title>
+    <link rel="shortcut icon" href="Custom-Icon-Design-Pretty-Office-2-Create-ticket.ico" type="image/x-icon">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
     <script defer src="dist/popper.min.js"></script>
     <script defer src="dist/js/bootstrap.min.js"></script>
@@ -68,7 +69,7 @@ if (isset($_POST['submit'])) {
                     </li>
 
                     <li class="nav-item mx-auto" style="margin-top: 20rem;">
-                        <a href="#" class="btn btn-light">
+                        <a href="adminProfile.php" class="btn btn-light">
                             <img src="image/user-solid.svg" width="30" height="30" alt="Profile Picture" class="rounded-circle">
                         </a>
                     </li>
@@ -79,10 +80,11 @@ if (isset($_POST['submit'])) {
                     <div class="container">
                         <div class="navbar-brand">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-ticket-fill mb-1 text-primary" viewBox="0 0 16 16">
-                <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13Z" />
-            </svg>
+                                <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13Z" />
+                            </svg>
 
-                            <span class="text-primary">We</span>Tic Admin</div>
+                            <span class="text-primary">We</span>Tic Admin
+                        </div>
                         <div class="collapse navbar-collapse">
                             <div class="mx-auto search-form" style="width: 50%;">
                                 <form action="search.php" method="get" class="d-lg-flex ">

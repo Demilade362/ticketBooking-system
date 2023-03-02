@@ -46,15 +46,15 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO tickets(usersname, usersId, usersemail, localePlace, accountNo, ticketID, mode) VAlUES('$username', '$userId', '$email', '$location', '$accountNo', '$ticketId', '$mode')";
         if (mysqli_query($conn, $sql)) {
 
-            $to = "oluseyiabatan01@gmail.com";
+            $to = $email;
             $subject = "Booking Tickets Completed";
 
 
             $headers = array(
                 "MIME-version" => '1.0',
                 'Content-Type' => 'text/html; charset=UTF-8',
-                "From" => 'ademolademilade362@gmail.com',
-                'Reply-to' => "ademolademilade362@gmail.com"
+                "From" => ' admin@wytemecury.com.ng',
+                'Reply-to' => "admin@wytemecury.com.ng"
             );
 
             $user = $username;
@@ -63,6 +63,7 @@ if (isset($_POST['submit'])) {
             include('message_one.php');
             $message = ob_get_contents();
             ob_get_clean();
+
 
             $send = mail($to, $subject, $message, $headers);
 
