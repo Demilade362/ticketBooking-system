@@ -21,7 +21,7 @@ if (isset($_COOKIE['code'])) {
 ?>
 
 <?php include "templates/header.php" ?>
-<section class="mt-5 bg-white shadow-sm container-extra p-3">
+<section class="mt-6 bg-white shadow-sm container-extra p-3">
     <?php if ($otpError['otp-error']) : ?>
         <div class="alert alert-danger">
             <?php echo $otpError['otp-error']; ?>
@@ -29,7 +29,7 @@ if (isset($_COOKIE['code'])) {
     <?php endif; ?>
     <form action="" method="POST">
         <input type="text" class="form-control mb-3" placeholder="Enter OTP" name="one_time">
-        <button class="btn btn-primary col-12" name="submit" type="submit">Verify Code</button>
+        <button class="btn btn-secondary col-12" name="submit" type="submit">Verify Code</button>
     </form>
 </section>
 <?php include "templates/footer.php" ?>

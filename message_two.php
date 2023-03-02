@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <title>Message</title>
     <style>
         .container-extra {
@@ -29,7 +29,7 @@
         <p class="mb-3 lead">Your Ticket to <?php echo $locale ?> has been used. </p>
         <p class="mb-3 lead">If Not By You, Reply Us we are here to serve you well</p>
         <p class="lead mb-3"> Thank you for Your Patronage.</p>
-        <a href="https://wytemecury.com.ng/" class="btn btn-primary">View Remaining Tickets</a>
+        <a href="https://www.wytemecury.com.ng/" class="btn btn-primary">View Remaining Tickets</a>
     </div>
 </body>
 

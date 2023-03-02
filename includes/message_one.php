@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <style>
         .container-extra {
             max-width: 600px;
@@ -27,7 +27,7 @@
         <h4 class="h4 mb-3">Hello <?php echo $user; ?></h4>
         <p class="mb-3 lead">Your Ticket Has Been Booked. </p>
         <p class="lead mb-3"> Thank you for Your Patronage.</p>
-        <a href="https://wytemecury.com.ng/" class="btn btn-primary">Login To View Tickets</a>
+        <a href="https://www.wytemecury.com.ng/" class="btn btn-primary">Login To View Tickets</a>
     </div>
 </body>
 

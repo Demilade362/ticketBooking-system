@@ -72,10 +72,10 @@ if (isset($_POST['submit'])) {
 <?php include 'templates/header.php' ?>
 <div class="container mt-6">
     <div class="row align-items-center justify-content-around">
-        <div class="col-lg-3 text-center d-none d-lg-block">
-            <div class="display-1">
+        <div class="col-lg-3 d-none d-lg-block">
+            <h1 class="display-4">
                 <span class="text-primary">Wyte</span>Mecury
-            </div>
+            </h1>
             <p class="lead">Booking AnyMinutes, Time and Place</p>
         </div>
         <div class="col-lg-5 col-md-12 col-sm-12">
