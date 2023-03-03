@@ -1,21 +1,23 @@
 <?php
 session_start();
 if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $msg = $_POST['msg'];
 
     $to = "admin@wytemecury.com.ng";
     $subject = "Report A Problem";
 
 
-    $header = array(
-        "From" => $_POST['email'],
-        'Reply-to' => "admin@wytemecury.com.ng"
+    $headers = array(
+        // "MIME-version" => '1.0',
+        // 'Content-Type' => 'text/html;charset=UTF-8',
+        "From" => "$email",
+        'Reply-To' => "$email"
     );
 
-    $message = $_POST['msg'];
+    $message = $msg;
 
     $send = mail($to, $subject, $message, $headers);
-
-    echo $send ? 'Mail is Sent' : 'We have A problem';
 }
 
 ?>
@@ -23,6 +25,17 @@ if (isset($_POST['submit'])) {
 <?php include 'templates/header.php' ?>
 <?php include 'templates/nav.php' ?>
 <section class="container-extra shadow-sm bg-white mt-5 p-3 shadow-sm" style="margin-bottom: 10rem;">
+    <?php if (isset($_POST['submit'])) : ?>
+        <?php if ($send) : ?>
+            <div class="alert alert-success">
+                <?php echo "Mail Sent" ?>
+            </div>
+        <?php elseif (!$send) : ?>
+            <div class="alert alert-danger">
+                <?php echo "Mail Not Sent" ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
     <form action="Report.php" method="POST">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control mb-3" name="email">

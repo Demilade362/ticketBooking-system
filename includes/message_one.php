@@ -6,27 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
         .container-extra {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 10rem auto;
+            text-align: center;
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding-bottom: 2.5rem;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .text-primary {
+            color: dodgerblue;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        .btn {
+            padding: 20px;
+            font-size: 23px;
+            background-color: dodgerblue;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .fwt-bold {
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+
+        .bg-light {
+            background: #eeeeee;
         }
     </style>
 </head>
 
 <body class="bg-light">
-    <div class="container-extra bg-white px-2 rounded py-5 shadow-sm mt-5 text-center">
-        <h4>
+    <div class="container-extra">
+        <h1>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-ticket-fill mb-1 text-primary" viewBox="0 0 16 16">
                 <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13Z" />
             </svg>
-            <span class="text-primary">We</span>Tic
-        </h4>
-        <h4 class="h4 mb-3">Hello <?php echo $user; ?></h4>
-        <p class="mb-3 lead">Your Ticket Has Been Booked. </p>
-        <p class="lead mb-3"> Thank you for Your Patronage.</p>
+            <span class="text-primary">Wyte</span>Mecury
+        </h1>
+        <h2 class="mb-3">Hello <?php echo $user; ?></h2>
+        <p class="mb-3">Your Ticket Has Been Booked. </p>
+        <p class="mb-3"> Thank you for Your Patronage.</p>
         <a href="https://www.wytemecury.com.ng/" class="btn btn-primary">Login To View Tickets</a>
     </div>
 </body>

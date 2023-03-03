@@ -1,5 +1,6 @@
 <?php
 include_once 'config/db_connect.php';
+session_start();
 $username = $password = $email = $confirmPassword =  '';
 $error = ['username' => '', 'password' => '', 'email' => '', 'confirmPassword' => '', 'Equal' => ''];
 
@@ -44,7 +45,7 @@ if (isset($_POST['submit'])) {
 
     if (array_filter($error)) {
     } else {
-        setcookie('code', mt_rand(10000, 99999), time() + 20);
+        $_SESSION['code'] = rand(1000, 9999);
         $to = $email;
         $subject = "One Time Verification Code";
 

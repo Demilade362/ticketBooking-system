@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 
             $headers = array(
                 "MIME-version" => '1.0',
-                'Content-Type' => 'text/html; charset=UTF-8',
+                'Content-Type' => 'text/html;charset=UTF-8',
                 "From" => ' admin@wytemecury.com.ng',
                 'Reply-to' => "admin@wytemecury.com.ng"
             );
@@ -67,12 +67,11 @@ if (isset($_POST['submit'])) {
 
             $send = mail($to, $subject, $message, $headers);
 
-            if($send){
+            if ($send) {
                 header('Location: add_success.php?type=success');
             } else {
                 die("Error Unable to send confirmation Email");
             }
-
         } else {
             header('Location: add_success.php?type=error');
             echo 'Connection Error: ' . mysqli_error($conn);

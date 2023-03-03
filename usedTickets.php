@@ -21,11 +21,11 @@ if (isset($_POST['useTic'])) {
         $subject = "Tickets Has Been Used";
 
 
-        $header = array(
+        $headers = array(
             "MIME-version" => '1.0',
             'Content-Type' => 'text/html;charset=UTF-8',
             "From" => 'admin@wytemecury.com.ng',
-            'Reply-to' => "admin@wytemecury.com.ng"
+            'Reply-To' => "admin@wytemecury.com.ng"
         );
 
         $user = $_POST['usersname'];

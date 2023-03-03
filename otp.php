@@ -1,12 +1,13 @@
 <?php
+session_start();
 $otpError = array('otp-error' => '');
 
-if (isset($_COOKIE['code'])) {
+if (isset($_SESSION['code'])) {
     if (isset($_POST['submit'])) {
         if (empty($_POST['one_time'])) {
             $otpError['otp-error'] = "Enter Otp Code";
         } else {
-            if ($_COOKIE['code'] == $_POST['one_time']) {
+            if ($_SESSION['code'] == $_POST['one_time']) {
                 header("Location: index.php");
             } else {
                 $otpError['otp-error'] = "Invalid Code Enter";
@@ -21,9 +22,9 @@ if (isset($_COOKIE['code'])) {
 ?>
 
 <?php include "templates/header.php" ?>
-<section class="mt-6 bg-white shadow-sm container-extra p-3">
+<section class="bg-white shadow-sm container-extra p-3" style="margin-top: 17rem;">
     <?php if ($otpError['otp-error']) : ?>
-        <div class="alert alert-danger">
+        <div class=" alert alert-danger">
             <?php echo $otpError['otp-error']; ?>
         </div>
     <?php endif; ?>
