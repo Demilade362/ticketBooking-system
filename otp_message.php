@@ -68,7 +68,7 @@
         <p class="mb-3">Your One-Time Password</p>
         <p class="fwt-bold"><?php echo $_SESSION['code']; ?></p>
         <p class="mb-3"> Thank you for Your Patronage.</p>
-        <a href="https://wytemecury.com.ng/" class="btn btn-primary mb-3">Login To Account</a>
+        <a href="https://wytemecury.com.ng/" class="btn btn-primary mb-3">Login</a>
     </div>
 </body>
 

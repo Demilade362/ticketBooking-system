@@ -57,16 +57,16 @@
 
 <body class="bg-light">
     <div class="container-extra">
-        <h1>
+        <h5>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-ticket-fill mb-1 text-primary" viewBox="0 0 16 16">
                 <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13Z" />
             </svg>
             <span class="text-primary">Wyte</span>Mecury
-        </h1>
-        <h2 class="mb-3">Hello <?php echo $user; ?></h2>
+        </h5>
+        <h6 class="mb-3">Hello <?php echo $user; ?></h6>
         <p class="mb-3">Your Ticket Has Been Booked. </p>
         <p class="mb-3"> Thank you for Your Patronage.</p>
-        <a href="https://www.wytemecury.com.ng/" class="btn btn-primary">Login To View Tickets</a>
+        <a href="https://www.wytemecury.com.ng/" class="btn btn-primary">View Tickets</a>
     </div>
 </body>
 
